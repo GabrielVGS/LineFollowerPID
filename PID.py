@@ -18,14 +18,13 @@ def follow_for_forever(tank):
 
 class PID(MoveSteering):
     def __init__(self,left_motor_port, right_motor_port,desc=None,motor_class=LargeMotor) -> None:
-        MoveTank.__init__(self, left_motor_port, right_motor_port, desc, motor_class)
+        MoveSteering.__init__(self, left_motor_port, right_motor_port, desc, motor_class)
         self.cs = None
     
     def follow_line_color(self,
                         target,
                         speed,
                         follow_for = follow_for_forever,
-                        follow_left_edge=True,
                         white=99,
                         off_line_count_max=20,
                         sleep_time=0.01,
