@@ -1,6 +1,11 @@
+import time
+import math
 from ev3dev2.motor import *
+from ev3dev2.sound import Sound
+from ev3dev2.button import Button
 from ev3dev2.sensor import *
 from ev3dev2.sensor.lego import *
+from ev3dev2.sensor.virtual import *
 import time
 import math
 
@@ -75,7 +80,9 @@ class PID(MoveSteering):
 
 
 
-
+pen = Pen(INPUT_5)
+pen.setColor(*(1,0,0))
+pen.down()
 pid = PID(OUTPUT_A,OUTPUT_B)
 pid.cs = ColorSensor(INPUT_1)
-pid.follow_line_color(45/2,20,kp=5.275,ki=0.00827,kd = 0.6245)
+pid.follow_line_color(45/2,20,kp=5.75,ki=0.00927,kd = 0.6245)
